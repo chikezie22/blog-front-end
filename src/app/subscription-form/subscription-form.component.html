@@ -1,0 +1,76 @@
+<div class="card shadow-effect">
+  <div class="card-body">
+    <div class="text-center mt-3 mb-5">
+      <h3>SUBSCRIPTION FORM</h3>
+      <p class="m-auto subs-text">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit eveniet
+        laudantium, enim natus soluta dolore, libero velit sapiente assumenda
+        consequatur optio error dolores reprehenderit accusamus inventore animi
+        doloribus ea officia!
+      </p>
+
+      <div class="alert alert-danger mt-3" *ngIf="isEmailError">
+        Email already in use
+      </div>
+
+      <div class="alert alert-info mt-3" *ngIf="isSubscribed">
+        Thank you for subscribing to our newsletter. Stay tuned for updates.
+      </div>
+
+      <form
+        #subForm="ngForm"
+        (ngSubmit)="onSubmit(subForm.value)"
+        *ngIf="!isSubscribed"
+      >
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <input
+              type="text"
+              class="form-control shadow-effect"
+              placeholder="Your Name"
+              name="name"
+              #Name="ngModel"
+              ngModel
+              required
+              [ngClass]="{
+                'is-invalid': Name.touched && Name.invalid,
+                'is-valid': Name.touched && Name.valid
+              }"
+            />
+            <div class="text-danger" *ngIf="Name.touched && Name.invalid">
+              <div>Name is Required</div>
+            </div>
+          </div>
+          <div class="col-md-5 mb-3">
+            <input
+              type="email"
+              class="form-control shadow-effect"
+              placeholder="Email Address"
+              name="email"
+              #eMail="ngModel"
+              ngModel
+              required
+              email
+              [ngClass]="{
+                'is-invalid': eMail.touched && eMail.invalid,
+                'is-valid': eMail.touched && eMail.valid
+              }"
+            />
+            <div class="text-danger" *ngIf="eMail.touched && eMail.invalid">
+              <div>Email is Required</div>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <button
+              class="btn btn-info btn-block btn-theme"
+              [disabled]="subForm.invalid"
+            >
+              SUBSCRIBE
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

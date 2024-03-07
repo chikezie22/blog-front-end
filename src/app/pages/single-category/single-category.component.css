@@ -1,0 +1,6 @@
+.singleCategory {
+  padding-left: 13rem;
+  padding-right: 13rem;
+  padding-bottom: 13rem;
+  background-color: var(--primary-color);
+}

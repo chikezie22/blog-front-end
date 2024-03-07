@@ -1,0 +1,16 @@
+.card {
+  background-color: var(--secondary-color);
+  max-width: 120rem;
+}
+
+/* input[type="text"],
+input[type="email"] {
+  height: 60px;
+  padding-left: 20px;
+  font-size: 13px;
+  width: 100%;
+} */
+
+.subs-text {
+  width: 50rem;
+}
